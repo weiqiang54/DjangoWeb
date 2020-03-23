@@ -1,0 +1,4 @@
+*.idea
+*.pyc
+*.bak
+book/book/local_settings.py
