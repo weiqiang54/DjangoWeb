@@ -41,8 +41,9 @@ INSTALLED_APPS = [
     'rest_framework',
     'corsheaders',
 
-    'users',
-    'demo2',
+    # 'users',
+    # 'demo2',
+    'demo4',
 ]
 
 MIDDLEWARE = [
@@ -58,7 +59,8 @@ MIDDLEWARE = [
 ]
 
 ROOT_URLCONF = 'book.urls'
-AUTH_USER_MODEL = 'users.UserProfile'
+# AUTH_USER_MODEL = 'users.UserProfile'
+AUTH_USER_MODEL = 'demo4.UserKeyProfile'
 
 # 跨域增加忽略
 CORS_ALLOW_CREDENTIALS = True

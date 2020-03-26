@@ -18,25 +18,25 @@ from django.urls import path, include
 
 from rest_framework.routers import DefaultRouter
 
-from users import views
-from demo2.views import TypeView
+# from users import views
+# from demo2.views import TypeView
 
-router = DefaultRouter()
-router.register(r'apibook5', views.BookModelViewSet)
+# router = DefaultRouter()
+# router.register(r'apibook5', views.BookModelViewSet)
 
 
 # Django REST framework的三层封装
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('api/book1/', views.BookAPIView1.as_view(), name='book1'),
-    path('api/book2/', views.BookAPIView2.as_view(), name='book2'),
-    path('api/book3/', views.BookMixinView1.as_view(), name='book3'),
-    path('api/book4/', views.BookMixinView2.as_view(), name='book4'),
-    path('', include(router.urls)),
+    # path('api/book1/', views.BookAPIView1.as_view(), name='book1'),
+    # path('api/book2/', views.BookAPIView2.as_view(), name='book2'),
+    # path('api/book3/', views.BookMixinView1.as_view(), name='book3'),
+    # path('api/book4/', views.BookMixinView2.as_view(), name='book4'),
+    # path('', include(router.urls)),
 ]
 
 # 大型电商类别表
 urlpatterns += [
-    path('api/types/', TypeView.as_view(), name='types'),
+    # path('api/types/', TypeView.as_view(), name='types'),
 ]
 
