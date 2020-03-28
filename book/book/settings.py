@@ -62,6 +62,9 @@ ROOT_URLCONF = 'book.urls'
 # AUTH_USER_MODEL = 'users.UserProfile'
 AUTH_USER_MODEL = 'demo4.UserKeyProfile'
 
+# YunPian
+APIKEY = '4843619598932cccf8a6c99f67770214'
+
 # 跨域增加忽略
 CORS_ALLOW_CREDENTIALS = True
 CORS_ORIGIN_ALLOW_ALL = True
@@ -155,6 +158,14 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/2.0/howto/static-files/
 
 STATIC_URL = '/static/'
+
+# 邮箱参数设置
+EMAIL_HOST = "smtp.163.com"
+EMAIL_PORT = 25
+EMAIL_HOST_USER = "15716659774@163.com"
+EMAIL_HOST_PASSWORD = "xiao121654"
+EMAIL_USE_TLS = False
+EMAIL_FROM = "15716659774@163.com"
 
 try:
     from .local_settings import DATABASES

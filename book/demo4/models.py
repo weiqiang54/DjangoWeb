@@ -46,3 +46,18 @@ class Code(models.Model):
     def __str__(self):
         return self.phone
 
+
+class EmailVerifyRecord(models.Model):
+    code = models.CharField(max_length=50, verbose_name=u"验证码")
+    email = models.EmailField(max_length=50, verbose_name=u"邮箱号码")
+    send_time = models.DateTimeField(verbose_name=u"发送时间", default=datetime.now)
+    add_time = models.DateTimeField(verbose_name=u"添加时间", default=datetime.now)
+
+    class Meta:
+        verbose_name = u"邮箱验证"
+        verbose_name_plural = verbose_name
+
+    def __str__(self):
+        return '{0}({1})'.format(self.code, self.email)
+
+

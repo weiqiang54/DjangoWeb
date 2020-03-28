@@ -25,12 +25,14 @@
         <input type="text" v-model="code">
         <button @click="authUserinfo">确认注册</button>
       </div>
-
+      <v-active :email='email'></v-active>
     </div>
   </div>
 </template>
 
 <script>
+import Axios from 'axios';
+import Active from './components/Active';
 export default {
   name: 'app',
   data () {
@@ -43,15 +45,42 @@ export default {
       username: '',
       pwd: '',
       code: '',
-      emial: ''
+      email: ''
     }
+  },
+  components: {
+    'v-active': Active
   },
   methods: {
     getCode(){
       //向后台发送请求，获取验证码
+      var api='http://192.168.18.153:8000/sendcode/';
+      Axios.get(api, {
+        params: {
+          phone: this.phone
+        }
+      }).then((response)=>{
+        console.log(response.data)
+      }).catch((error)=>{
+        console.log(error)
+      })
     },
     goRegister(){
-      //提交完整的注册信息
+      var api='http://192.168.18.153:8000/register/';
+      Axios.get(api, {
+        params: {
+          phone: this.phone,
+          username: this.username,
+          pwd: this.pwd,
+          code: this.code,
+          email: this.email
+
+        }
+      }).then((response)=>{
+        console.log(response.data)
+      }).catch((error)=>{
+        console.log(error)
+      })
     },
     authPhone(){
       var reg=11 && /^((13|14|15|17|18)[0-9]{1}\d{8})$/;

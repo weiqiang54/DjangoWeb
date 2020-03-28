@@ -20,6 +20,7 @@ from rest_framework.routers import DefaultRouter
 
 # from users import views
 # from demo2.views import TypeView
+from demo4.views import SendCodeView, RegisterVIew, SendActiveCodeView, ActivaView
 
 # router = DefaultRouter()
 # router.register(r'apibook5', views.BookModelViewSet)
@@ -39,4 +40,13 @@ urlpatterns = [
 urlpatterns += [
     # path('api/types/', TypeView.as_view(), name='types'),
 ]
+
+# 认证业务模型
+urlpatterns += [
+    path('sendcode/', SendCodeView.as_view(), name='sendcode'),
+    path('register/', RegisterVIew.as_view(), name='register'),
+    path('sendactivecode/', SendActiveCodeView.as_view(), name='sendactivecode'),
+    path('active/', ActivaView.as_view(), name='active'),
+]
+
 
