@@ -17,10 +17,12 @@ from django.contrib import admin
 from django.urls import path, include
 
 from rest_framework.routers import DefaultRouter
+from rest_framework_jwt.views import obtain_jwt_token
 
 # from users import views
 # from demo2.views import TypeView
-from demo4.views import SendCodeView, RegisterVIew, SendActiveCodeView, ActivaView
+# from demo4.views import SendCodeView, RegisterVIew, SendActiveCodeView, ActivaView
+from demo5.views import IndexView
 
 # router = DefaultRouter()
 # router.register(r'apibook5', views.BookModelViewSet)
@@ -42,11 +44,16 @@ urlpatterns += [
 ]
 
 # 认证业务模型
-urlpatterns += [
-    path('sendcode/', SendCodeView.as_view(), name='sendcode'),
-    path('register/', RegisterVIew.as_view(), name='register'),
-    path('sendactivecode/', SendActiveCodeView.as_view(), name='sendactivecode'),
-    path('active/', ActivaView.as_view(), name='active'),
-]
+# urlpatterns += [
+#     path('sendcode/', SendCodeView.as_view(), name='sendcode'),
+#     path('register/', RegisterVIew.as_view(), name='register'),
+#     path('sendactivecode/', SendActiveCodeView.as_view(), name='sendactivecode'),
+#     path('active/', ActivaView.as_view(), name='active'),
+# ]
 
+# JWT认证
+urlpatterns += [
+    path('jwt-token-auth/', obtain_jwt_token),
+    path('index/', IndexView.as_view(), name='index'),
+]
 

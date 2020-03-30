@@ -43,7 +43,8 @@ INSTALLED_APPS = [
 
     # 'users',
     # 'demo2',
-    'demo4',
+    # 'demo4',
+    'demo5',
 ]
 
 MIDDLEWARE = [
@@ -60,7 +61,7 @@ MIDDLEWARE = [
 
 ROOT_URLCONF = 'book.urls'
 # AUTH_USER_MODEL = 'users.UserProfile'
-AUTH_USER_MODEL = 'demo4.UserKeyProfile'
+# AUTH_USER_MODEL = 'demo4.UserKeyProfile'
 
 # YunPian
 APIKEY = '4843619598932cccf8a6c99f67770214'
@@ -166,6 +167,15 @@ EMAIL_HOST_USER = "15716659774@163.com"
 EMAIL_HOST_PASSWORD = "xiao121654"
 EMAIL_USE_TLS = False
 EMAIL_FROM = "15716659774@163.com"
+
+REST_FRAMEWORK = {
+    'DEFAULT_PERMISSION_CLASSES': ('rest_framework.permissions.IsAuthenticated',),
+    'DEFAULT_AUTHENTICATION_CLASSES': ('rest_framework_jwt.authentication.JSONWebTokenAuthentication',),
+}
+import datetime
+JWT_AUTH = {
+    'JWT_EXPIRATION_DELTA': datetime.timedelta(days=1),
+}
 
 try:
     from .local_settings import DATABASES
